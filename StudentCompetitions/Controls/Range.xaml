@@ -1,15 +1,15 @@
-﻿<UserControl x:Class="StudentCompetitions.Controls.Range"
+﻿<UserControl x:Class="StudentCompetitions.Range"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:StudentCompetitions.Controls"
+             xmlns:local="clr-namespace:StudentCompetitions"
              mc:Ignorable="d" 
              >
     <StackPanel Orientation="Horizontal">
-        <TextBlock Text=" from "/>
-        <TextBox Width="70"/>
-        <TextBlock Text=" to "/>
-        <TextBox Width="70"/>
+        <TextBlock x:Name="FromText" Text=" from "/>
+        <TextBox x:Name="FromBox" Width="70" IsEnabled="False"/>
+        <TextBlock x:Name="ToText" Text=" to "/>
+        <TextBox x:Name="ToBox" Width="70" IsEnabled="False"/>
     </StackPanel>
 </UserControl>

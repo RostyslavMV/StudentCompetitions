@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
 
 namespace StudentCompetitions
 {
@@ -23,6 +10,40 @@ namespace StudentCompetitions
         public Filter()
         {
             InitializeComponent();
+        }
+
+        private void CompetitionTypeCheckBox_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            CompetitionTypeComboBox.IsEnabled = true;
+        }
+
+        private void CompetitionTypeCheckBox_Unchecked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            CompetitionTypeComboBox.IsEnabled = false;
+        }
+
+        private void SkillsCheckBox_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            SkillsRange.FromBox.IsEnabled = true;
+            SkillsRange.ToBox.IsEnabled = true;
+        }
+
+        private void SkillsCheckBox_Unchecked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            SkillsRange.FromBox.IsEnabled = false;
+            SkillsRange.ToBox.IsEnabled = false;
+        }
+
+        private void ResultCheckBox_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ResultRange.FromBox.IsEnabled = true;
+            ResultRange.ToBox.IsEnabled = true;
+        }
+
+        private void ResultCheckBox_Unchecked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ResultRange.FromBox.IsEnabled = false;
+            ResultRange.ToBox.IsEnabled = false;
         }
     }
 }

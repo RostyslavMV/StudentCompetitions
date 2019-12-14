@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StudentCompetitions"
-             xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Controls="clr-namespace:StudentCompetitions.Controls" x:Class="StudentCompetitions.Фільтр"
+             xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Controls="clr-namespace:StudentCompetitions" x:Class="StudentCompetitions.Filter"
              mc:Ignorable="d" 
              Width="700">
     <Grid>
@@ -18,18 +18,16 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Фільтр:"  HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Margin="20,2,20,0" Grid.RowSpan="2"/>
-        <CheckBox Content="Competition type" Grid.Column="1" VerticalAlignment="Center" Margin="10"/>
-        <ComboBox Grid.Column="1" Grid.Row="1" Margin="10">
+        <TextBlock Text="Filter:"  HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Margin="20,2,20,0" Grid.RowSpan="2"/>
+        <CheckBox x:Name="CompetitionTypeCheckBox" Content="Competition type" Grid.Column="1" VerticalAlignment="Center" Margin="10" Checked="CompetitionTypeCheckBox_Checked" Unchecked="CompetitionTypeCheckBox_Unchecked"/>
+        <ComboBox x:Name="CompetitionTypeComboBox" Grid.Column="1" Grid.Row="1" Margin="10" IsEnabled="False">
             <System:String>University</System:String>
             <System:String>National</System:String>
             <System:String>International</System:String>
         </ComboBox>
-        <CheckBox Content="Skills" Grid.Column="2" VerticalAlignment="Center" Margin="10"/>
-        <Controls:Range Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <CheckBox Content="Result" Grid.Column="3" VerticalAlignment="Center" Margin="10"/>
-        <Controls:Range Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-
-
+        <CheckBox x:Name="SkillsCheckBox" Content="Skills" Grid.Column="2" VerticalAlignment="Center" Margin="10" Checked="SkillsCheckBox_Checked" Unchecked="SkillsCheckBox_Unchecked"/>
+        <Controls:Range x:Name="SkillsRange" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <CheckBox x:Name="ResultCheckBox" Content="Average result" Grid.Column="3" VerticalAlignment="Center" Margin="10" Checked="ResultCheckBox_Checked" Unchecked="ResultCheckBox_Unchecked"/>
+        <Controls:Range x:Name="ResultRange" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
     </Grid>
 </UserControl>

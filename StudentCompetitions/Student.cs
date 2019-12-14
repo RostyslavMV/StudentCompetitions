@@ -11,7 +11,7 @@ namespace StudentCompetitions
 
         public Dictionary<string, double> Skills { get; private set; }
 
-        public ObservableCollection<CompetitionResult> PreviousResults { get; set; }
+        public ObservableCollection<CompetitionResult> PreviousResults { get; set; } = new ObservableCollection<CompetitionResult>();
 
         public double LastResult { get; protected set; }
 
@@ -40,6 +40,7 @@ namespace StudentCompetitions
         {
             double result = base.GenerateResult(competition);
             result += random.NextDouble() * result;
+            LastResult = result;
             return result;
         }
 

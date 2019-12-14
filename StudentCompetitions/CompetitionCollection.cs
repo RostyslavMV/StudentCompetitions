@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace StudentCompetitions
 {
-    class CompetitionCollection : Collection<Competition>
+    public class CompetitionCollection : Collection<Competition>
     {
         private StudentCollection Students { get; set; }
 
@@ -62,6 +62,7 @@ namespace StudentCompetitions
         {
             Students = students;
             GenerateCompetitionCollection();
+            GenerateCompetitionResults();
         }
     }
 }

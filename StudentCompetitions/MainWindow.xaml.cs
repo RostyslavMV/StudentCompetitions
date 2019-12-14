@@ -20,7 +20,8 @@ namespace StudentCompetitions
     /// </summary>
     public partial class MainWindow : Window
     {
-        public StudentCollection Students = new StudentCollection();
+        public static StudentCollection Students = new StudentCollection();
+        public static CompetitionCollection Competitions = new CompetitionCollection(Students);
         public MainWindow()
         {
             InitializeComponent();
