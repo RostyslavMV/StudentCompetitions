@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentCompetitions
 {
@@ -29,13 +25,13 @@ namespace StudentCompetitions
         }
     }
 
-    class Result
+    class CompetitionResult
     {
         public Competition Competition_ { get; private set; }
 
         public int Place { get; private set; }
 
-        public Result(Competition Competition_, int Place)
+        public CompetitionResult(Competition Competition_, int Place)
         {
             this.Competition_ = Competition_;
             this.Place = Place;
