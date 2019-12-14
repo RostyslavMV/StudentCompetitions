@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace StudentCompetitions
 {
-    public class StudentCollection : Collection<Student>
+    public class StudentCollection : ObservableCollection<Student>
     {
         public Random random = new Random();
         private Dictionary<string, double> SkillDictionaryRandomValues()
@@ -57,6 +57,11 @@ namespace StudentCompetitions
         public StudentCollection()
         {
             GenerateStudentCollection();
+        }
+        public StudentCollection(StudentCollection studentCollection)
+        {
+            foreach (Student student in studentCollection)
+                Add(student);
         }
     }
 }

@@ -30,9 +30,9 @@ namespace StudentCompetitions
 
         public void MakeResults()
         {
-            Participants.OrderByDescending(o => o.GenerateResult(this));
+            Participants = Participants.OrderByDescending(o => o.GenerateResult(this)).ToList();
             int place = 1;
-            foreach(Student student in Participants)
+            foreach (Student student in Participants)
             {
                 student.PreviousResults.Add(new CompetitionResult(this, student.LastResult, place));
                 place++;

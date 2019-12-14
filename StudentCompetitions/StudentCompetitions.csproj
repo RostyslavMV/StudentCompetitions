@@ -63,6 +63,7 @@
     <Compile Include="Controls\Range.xaml.cs">
       <DependentUpon>Range.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="StudentCollection.cs" />
     <Compile Include="Controls\StudentListControl.xaml.cs">

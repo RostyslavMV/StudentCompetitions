@@ -20,12 +20,10 @@ namespace StudentCompetitions
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static StudentCollection Students = new StudentCollection();
-        public static CompetitionCollection Competitions = new CompetitionCollection(Students);
         public MainWindow()
         {
             InitializeComponent();
-            StudentList.ItemsSource = Students;
+            StudentList.ItemsSource = Filter.FilteredStudents;
 
         }
 

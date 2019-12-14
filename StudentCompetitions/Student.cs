@@ -15,6 +15,39 @@ namespace StudentCompetitions
 
         public double LastResult { get; protected set; }
 
+        public bool ParticipatedInType(string CompetitionType)
+        {
+            foreach (CompetitionResult result in PreviousResults)
+            {
+                if (result.Competition_.Type == CompetitionType)
+                    return true;
+            }
+            return false;
+        }
+
+        public double CalculateAverageResult(string CompetitionType)
+        {
+            double sum = 0;
+            int count = 0;
+            if (CompetitionType != "All")
+            {
+                foreach (CompetitionResult result in PreviousResults)
+                {
+                    if (result.Competition_.Type == CompetitionType)
+                        sum += result.Mark;
+                }
+            }
+            else
+            {
+                foreach (CompetitionResult result in PreviousResults)
+                {
+                    sum += result.Mark;
+                }
+            }
+            if (count == 0) return 0;
+            return sum / count;
+        }
+
         public virtual double GenerateResult(Competition competition)
         {
             double result = 0;

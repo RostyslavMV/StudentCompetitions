@@ -8,8 +8,8 @@
              >
     <StackPanel Orientation="Horizontal">
         <TextBlock x:Name="FromText" Text=" from "/>
-        <TextBox x:Name="FromBox" Width="70" IsEnabled="False"/>
+        <TextBox x:Name="FromBox" Width="70" IsEnabled="False" TextChanged="FromBox_TextChanged"/>
         <TextBlock x:Name="ToText" Text=" to "/>
-        <TextBox x:Name="ToBox" Width="70" IsEnabled="False"/>
+        <TextBox x:Name="ToBox" Width="70" IsEnabled="False" TextChanged="ToBox_TextChanged"/>
     </StackPanel>
 </UserControl>
