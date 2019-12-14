@@ -15,6 +15,13 @@ namespace StudentCompetitions
 
         public Collection<Student> Participants { get; private set; }
 
+        public bool IsHappened { get; private set; } = false;
+
+        public void SetIsHappedTrue()
+        {
+            IsHappened = true;
+        }
+
         public Competition(string Name, string Type, DateTime Date, Collection<string> Subjects, Collection<Student> Participants)
         {
             this.Name = Name;

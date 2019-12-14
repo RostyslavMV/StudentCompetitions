@@ -10,13 +10,13 @@ namespace StudentCompetitions
 
         public Dictionary<string, double> Skills { get; private set; }
 
-        public ObservableCollection<CompetitionResult> PreviousRsults { get; private set; }
+        public ObservableCollection<CompetitionResult> PreviousResults { get; private set; }
 
         public virtual double GenerateResult(Competition competition)
         {
             double result = 0;
             double addition;
-            foreach (String subject in competition.Subjects)
+            foreach (string subject in competition.Subjects)
             {
                 if (Skills.TryGetValue(subject, out addition))
                     result += addition;
@@ -36,7 +36,7 @@ namespace StudentCompetitions
         {
             double result = base.GenerateResult(competition);
             Random random = new Random();
-            result += random.NextDouble() * (result - result / 5) + result / 5;
+            result += random.NextDouble() * result;
             return result;
         }
 
@@ -50,10 +50,10 @@ namespace StudentCompetitions
         public override double GenerateResult(Competition competition)
         {
             double result = base.GenerateResult(competition);
-            foreach (CompetitionResult prevResult in PreviousRsults)
+            foreach (CompetitionResult prevResult in PreviousResults)
             {
                 if (competition.Type == prevResult.Competition_.Type)
-                    result += 5.0/prevResult.Place;
+                    result += 5.0 / prevResult.Place;
             }
             return result;
         }
@@ -61,6 +61,7 @@ namespace StudentCompetitions
         {
         }
     }
+
     class StudentWithRivals : Student
     {
         public Collection<Student> Rivals { get; private set; }
@@ -68,9 +69,9 @@ namespace StudentCompetitions
         public override double GenerateResult(Competition competition)
         {
             double result = base.GenerateResult(competition);
-            foreach (CompetitionResult prevResult in PreviousRsults)
+            foreach (CompetitionResult prevResult in PreviousResults)
             {
-               foreach(Student participant in competition.Participants)
+                foreach (Student participant in competition.Participants)
                 {
                     if (Rivals.Contains(participant))
                         result += 2;

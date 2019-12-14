@@ -56,7 +56,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Competition.cs" />
+    <Compile Include="CompetitionCollection.cs" />
     <Compile Include="Student.cs" />
+    <Compile Include="StudentCollection.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
