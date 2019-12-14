@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace StudentCompetitions
 {
     /// <summary>
-    /// Interaction logic for StudentListControl.xaml
+    /// Interaction logic for Range.xaml
     /// </summary>
-    public partial class StudentListControl : DataGrid
+    public partial class Range : UserControl
     {
-        public StudentListControl()
+        public Range()
         {
             InitializeComponent();
         }

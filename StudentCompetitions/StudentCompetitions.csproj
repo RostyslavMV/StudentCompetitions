@@ -57,11 +57,21 @@
     </ApplicationDefinition>
     <Compile Include="Competition.cs" />
     <Compile Include="CompetitionCollection.cs" />
+    <Compile Include="Controls\Filter.xaml.cs">
+      <DependentUpon>Filter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Range.xaml.cs">
+      <DependentUpon>Range.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Student.cs" />
     <Compile Include="StudentCollection.cs" />
     <Compile Include="Controls\StudentListControl.xaml.cs">
       <DependentUpon>StudentListControl.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\Filter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -75,6 +85,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Controls\StudentListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Range.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

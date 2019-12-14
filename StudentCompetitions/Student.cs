@@ -13,6 +13,8 @@ namespace StudentCompetitions
 
         public ObservableCollection<CompetitionResult> PreviousResults { get; set; }
 
+        public double LastResult { get; protected set; }
+
         public virtual double GenerateResult(Competition competition)
         {
             double result = 0;
@@ -22,6 +24,7 @@ namespace StudentCompetitions
                 if (Skills.TryGetValue(subject, out addition))
                     result += addition;
             }
+            LastResult = result;
             return result;
         }
 
@@ -55,6 +58,7 @@ namespace StudentCompetitions
                 if (competition.Type == prevResult.Competition_.Type)
                     result += 5.0 / prevResult.Place;
             }
+            LastResult = result;
             return result;
         }
         public StudentDependsOnPast(string Name, Dictionary<string, double> Skills) : base(Name, Skills)
@@ -77,6 +81,7 @@ namespace StudentCompetitions
                         result += 2;
                 }
             }
+            LastResult = result;
             return result;
         }
 

@@ -5,13 +5,13 @@ namespace StudentCompetitions
 {
     class CompetitionCollection : Collection<Competition>
     {
-        private StudentCollection Students = new StudentCollection();
+        private StudentCollection Students { get; set; }
 
         private Collection<Student> FirstHalf()
         {
             Collection<Student> firstHalf = new Collection<Student>();
             int count = 0;
-            foreach(Student student in Students)
+            foreach (Student student in Students)
             {
                 if (count < Students.Count / 2)
                     firstHalf.Add(student);
@@ -23,7 +23,7 @@ namespace StudentCompetitions
         private Collection<Student> SecondHalf()
         {
             Collection<Student> secondHalf = new Collection<Student>();
-            for (int i = Students.Count/2;i<Students.Count;i++)
+            for (int i = Students.Count / 2; i < Students.Count; i++)
             {
                 secondHalf.Add(Students[i]);
             }
@@ -36,7 +36,7 @@ namespace StudentCompetitions
             Collection<string> ProgrammingAlgebra = new Collection<string> { "Programming", "Algebra" };
             Collection<string> English = new Collection<string> { "English" };
             Collection<String> EnglishAlgebra = new Collection<string> { "English", "Algebra" };
-            Collection<string> Programming = new Collection<string>{ "Programming" };
+            Collection<string> Programming = new Collection<string> { "Programming" };
             Collection<Student> firstHalf = FirstHalf();
             Collection<Student> secondHalf = SecondHalf();
 
@@ -52,14 +52,15 @@ namespace StudentCompetitions
 
         public void GenerateCompetitionResults()
         {
-            foreach(Competition competition in this)
+            foreach (Competition competition in this)
             {
                 competition.MakeResults();
             }
         }
 
-        public CompetitionCollection()
+        public CompetitionCollection(StudentCollection students)
         {
+            Students = students;
             GenerateCompetitionCollection();
         }
     }

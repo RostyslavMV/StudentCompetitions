@@ -31,6 +31,12 @@ namespace StudentCompetitions
         public void MakeResults()
         {
             Participants.OrderByDescending(o => o.GenerateResult(this));
+            int place = 1;
+            foreach(Student student in Participants)
+            {
+                student.PreviousResults.Add(new CompetitionResult(this, student.LastResult, place));
+                place++;
+            }
             IsHappened = true;
         }
     }
@@ -39,12 +45,15 @@ namespace StudentCompetitions
     {
         public Competition Competition_ { get; private set; }
 
-        public int Place { get; private set; }
+        public int Place { get; set; }
 
-        public CompetitionResult(Competition Competition_, int Place)
+        public double Mark { get; private set; }
+
+        public CompetitionResult(Competition Competition_, double Mark,int Place)
         {
             this.Competition_ = Competition_;
             this.Place = Place;
+            this.Mark = Mark;
         }
     }
 }

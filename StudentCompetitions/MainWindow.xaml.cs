@@ -25,6 +25,12 @@ namespace StudentCompetitions
         {
             InitializeComponent();
             StudentList.ItemsSource = Students;
+
+        }
+
+        private void StudentList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

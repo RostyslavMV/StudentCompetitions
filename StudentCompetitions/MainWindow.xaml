@@ -6,12 +6,16 @@
         xmlns:local="clr-namespace:StudentCompetitions"
         mc:Ignorable="d"
         Icon="/Images/icon.ico"
-        Title="Student Competitions" Height="450" Width="800">
+        Title="Student Competitions" Height="450" Width="1000">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <local:StudentListControl x:Name="StudentList" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <local:StudentListControl x:Name="StudentList" SelectionChanged="StudentList_SelectionChanged" />
     </Grid>
 </Window>
