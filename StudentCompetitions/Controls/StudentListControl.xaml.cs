@@ -16,15 +16,13 @@ using System.Windows.Shapes;
 namespace StudentCompetitions
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for StudentListControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StudentListControl : ListView
     {
-        public StudentCollection Students = new StudentCollection();
-        public MainWindow()
+        public StudentListControl()
         {
             InitializeComponent();
-            StudentList.ItemsSource = Students;
         }
     }
 }

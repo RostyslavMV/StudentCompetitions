@@ -50,6 +50,14 @@ namespace StudentCompetitions
             Add(new Competition("English Olympiad 2019", "University", new DateTime(2019, 7, 18), English, firstHalf));
         }
 
+        public void GenerateCompetitionResults()
+        {
+            foreach(Competition competition in this)
+            {
+                competition.MakeResults();
+            }
+        }
+
         public CompetitionCollection()
         {
             GenerateCompetitionCollection();

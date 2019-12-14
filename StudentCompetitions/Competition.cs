@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace StudentCompetitions
 {
-    class Competition
+    public class Competition
     {
         public string Name { get; private set; }
 
@@ -13,14 +15,9 @@ namespace StudentCompetitions
 
         public Collection<string> Subjects { get; private set; }
 
-        public Collection<Student> Participants { get; private set; }
+        public List<Student> Participants { get; private set; }
 
         public bool IsHappened { get; private set; } = false;
-
-        public void SetIsHappedTrue()
-        {
-            IsHappened = true;
-        }
 
         public Competition(string Name, string Type, DateTime Date, Collection<string> Subjects, Collection<Student> Participants)
         {
@@ -28,11 +25,17 @@ namespace StudentCompetitions
             this.Type = Type;
             this.Date = Date;
             this.Subjects = Subjects;
-            this.Participants = Participants;
+            this.Participants = Participants.ToList();
+        }
+
+        public void MakeResults()
+        {
+            Participants.OrderByDescending(o => o.GenerateResult(this));
+            IsHappened = true;
         }
     }
 
-    class CompetitionResult
+    public class CompetitionResult
     {
         public Competition Competition_ { get; private set; }
 

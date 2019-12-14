@@ -4,13 +4,14 @@ using System.Collections.ObjectModel;
 
 namespace StudentCompetitions
 {
-    class Student
+    public class Student
     {
+        public Random random = new Random();
         public string Name { get; private set; }
 
         public Dictionary<string, double> Skills { get; private set; }
 
-        public ObservableCollection<CompetitionResult> PreviousResults { get; private set; }
+        public ObservableCollection<CompetitionResult> PreviousResults { get; set; }
 
         public virtual double GenerateResult(Competition competition)
         {
@@ -35,7 +36,6 @@ namespace StudentCompetitions
         public override double GenerateResult(Competition competition)
         {
             double result = base.GenerateResult(competition);
-            Random random = new Random();
             result += random.NextDouble() * result;
             return result;
         }

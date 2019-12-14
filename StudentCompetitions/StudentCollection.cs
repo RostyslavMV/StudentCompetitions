@@ -4,12 +4,12 @@ using System.Collections.ObjectModel;
 
 namespace StudentCompetitions
 {
-    class StudentCollection : Collection<Student>
+    public class StudentCollection : Collection<Student>
     {
+        public Random random = new Random();
         private Dictionary<string, double> SkillDictionaryRandomValues()
         {
             Dictionary<string, double> SkillDictionary = new Dictionary<string, double>();
-            Random random = new Random();
             SkillDictionary.Add("Algebra", random.NextDouble() * 10.0);
             SkillDictionary.Add("Geometry", random.NextDouble() * 10.0);
             SkillDictionary.Add("Programming", random.NextDouble() * 10.0);
@@ -31,7 +31,7 @@ namespace StudentCompetitions
 
         private void GenerateStudentCollection()
         {
-            string[] Names = { "Ivan", "Peter", "John", "Andrew", "Mike", "Alice", "Rose", "Bob", "Jason", "Elizabeth",
+            string[] Names = { "Ivan", "Peter", "John", "Andrew", "Mike", "Alice", "Rose", "Bob", "Jason", "Marry",
         "Elizabeth","Emma","Sophia", "Garry"};
             int count = 0;
             foreach (string name in Names)
