@@ -53,6 +53,10 @@ namespace StudentCompetitions
             {
                 competition.MakeResults();
             }
+            foreach (Student student in Students)
+            {
+                student.CalculateAverageResult("All");
+            }
         }
 
         public CompetitionCollection(StudentCollection students)

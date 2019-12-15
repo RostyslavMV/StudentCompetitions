@@ -29,7 +29,29 @@ namespace StudentCompetitions
 
         private void StudentList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var selectedStudent = StudentList.SelectedItem as Student;
+            if (selectedStudent != null)
+            {
+                StudentName.Text = selectedStudent.Name;
+                SkillsDataGrid.ItemsSource = selectedStudent.Skills;
+                Competitions.ItemsSource = selectedStudent.PreviousResults;
+                AverageText.Text = String.Format("{0:0.000}", selectedStudent.CurrentAverage);
+            }
+            else
+            {
+                StudentName.Text = "";
+                SkillsDataGrid.ItemsSource = null;
+                Competitions.ItemsSource = null;
+                AverageText.Text = "";
+            }
 
+        }
+
+        private void about_Click(object sender, RoutedEventArgs e)
+        {
+            Window about = new About();
+            about.Owner = this;
+            about.ShowDialog();
         }
     }
 }

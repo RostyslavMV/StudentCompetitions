@@ -1,0 +1,15 @@
+﻿<Window x:Class="StudentCompetitions.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="About" Height="250" Width="700" WindowStartupLocation="CenterOwner" >
+    <Grid>
+        <TextBlock TextAlignment="Center" FontSize="24" Foreground="#FF063DB2" VerticalAlignment="Center">
+            <Run Text="Київський національний університет ім. Шевченка"/><LineBreak/>
+            <Run FontSize="36" Text="Екзаменаційна робота"/><LineBreak/>
+            <Run Text="студента:"/><Run Text=" "/><Run FontStyle="Italic" Text="Мочульського Р. В."/>
+        </TextBlock>
+    </Grid>
+</Window>

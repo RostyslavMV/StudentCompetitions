@@ -6,14 +6,21 @@
         xmlns:local="clr-namespace:StudentCompetitions"
         mc:Ignorable="d"
         Icon="/Images/icon.ico"
-        Title="Student Competitions" Height="450" Width="1000">
-    <Grid>
+        MinWidth="1020"
+        Title="Student Competitions" Height="450" Width="1020">
+    <Grid Margin="5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <local:Filter HorizontalAlignment="Left" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" MinWidth="460"/>
+            <ColumnDefinition Width="*" MinWidth="500"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.ColumnSpan="3" Margin="10" BorderBrush="#FF0243CF" BorderThickness="0,0,0,1">
+            <local:Filter  HorizontalAlignment="Left" />
+        </Border>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -21,6 +28,43 @@
             </Grid.ColumnDefinitions>
             <local:StudentListControl x:Name="StudentList" SelectionChanged="StudentList_SelectionChanged" />
         </Grid>
-        
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="Student: "  Padding="5"/>
+                <TextBlock x:Name="StudentName" Padding="5"/>
+            </StackPanel>
+            <DataGrid x:Name="SkillsDataGrid"  Background="White" BorderThickness="0" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow"
+             CanUserResizeRows="False" CanUserResizeColumns="False" AutoGenerateColumns="False"
+             HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" Grid.Row="1">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Skill" Binding="{Binding Key}"/>
+                    <DataGridTextColumn Width="*" Header="Points" Binding="{Binding Value, StringFormat={}{0:0.000}}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="Competitions" Margin="0 3 0 0" Background="White" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow"
+             CanUserResizeRows="False" CanUserResizeColumns="False" AutoGenerateColumns="False" 
+             HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" BorderThickness="0" Grid.Row="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Competition" Width="4*" Binding="{Binding CompetitionObject.Name}"/>
+                    <DataGridTextColumn Width="2*" Header="Date" Binding="{Binding CompetitionObject.Date, StringFormat='{}{0:dd.MM.yyyy}'}"/>
+                    <DataGridTextColumn Width="2*" Header="Type" Binding="{Binding CompetitionObject.Type}"/>
+                    <DataGridTextColumn Width="*" Binding="{Binding Mark, StringFormat={}{0:0.00}}" Header="Result"/>
+                    <DataGridTextColumn Width="*" Binding="{Binding Place}" Header="Place"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel HorizontalAlignment="Center" Grid.Row="3" Orientation="Horizontal">
+                <TextBlock Text="Average result in type:" HorizontalAlignment="Center" Padding="5"/>
+                <TextBlock x:Name="AverageText" Text="{Binding CurrentAverage}" HorizontalAlignment="Center" Padding="5"/>
+            </StackPanel>
+        </Grid>
+        <Button x:Name="about" Background="White" Width="24" Height="24" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="3" Margin ="5 10" Click="about_Click">
+            <Image Source="{StaticResource info}"/>
+        </Button>
     </Grid>
 </Window>

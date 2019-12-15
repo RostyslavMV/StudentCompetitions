@@ -11,6 +11,8 @@ namespace StudentCompetitions
 
         public Dictionary<string, double> Skills { get; private set; }
 
+        public double CurrentAverage { get; private set; } = 0;
+
         public ObservableCollection<CompetitionResult> PreviousResults { get; set; } = new ObservableCollection<CompetitionResult>();
 
         public double LastResult { get; protected set; }
@@ -19,7 +21,7 @@ namespace StudentCompetitions
         {
             foreach (CompetitionResult result in PreviousResults)
             {
-                if (result.Competition_.Type == CompetitionType)
+                if (result.CompetitionObject.Type == CompetitionType)
                     return true;
             }
             return false;
@@ -33,9 +35,11 @@ namespace StudentCompetitions
             {
                 foreach (CompetitionResult result in PreviousResults)
                 {
-                    if (result.Competition_.Type == CompetitionType)
+                    if (result.CompetitionObject.Type ==CompetitionType)
+                    {
                         sum += result.Mark;
-                    count++;
+                        count++;
+                    }
                 }
             }
             else
@@ -46,8 +50,11 @@ namespace StudentCompetitions
                     count++;
                 }
             }
-            if (count == 0) return 0;
-            return sum / count;
+            if (count == 0)
+                CurrentAverage = 0;
+            else
+                CurrentAverage = sum / count;
+            return CurrentAverage;
         }
 
         public virtual double GenerateResult(Competition competition)
@@ -91,7 +98,7 @@ namespace StudentCompetitions
             double result = base.GenerateResult(competition);
             foreach (CompetitionResult prevResult in PreviousResults)
             {
-                if (competition.Type == prevResult.Competition_.Type)
+                if (competition.Type == prevResult.CompetitionObject.Type)
                     result += 5.0 / prevResult.Place;
             }
             LastResult = result;

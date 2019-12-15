@@ -39,6 +39,7 @@ namespace StudentCompetitions
             if (CompetitionTypeCheckBox.IsChecked == true)
             {
                 type = CompetitionTypeComboBox.SelectedItem.ToString();
+                student.CalculateAverageResult(type);
                 if (type != "All" && !student.ParticipatedInType(type))
                     return false;
             }
@@ -54,6 +55,8 @@ namespace StudentCompetitions
                     if (averageResult > valueTo)
                         return false;
             }
+            else  
+                student.CalculateAverageResult(CompetitionTypeComboBox.SelectedItem.ToString());
             return true;
         }
 
@@ -66,6 +69,7 @@ namespace StudentCompetitions
                 if (FilterSatisfied(student))
                     FilteredStudents.Add(student);
             }
+            
         }
 
         private void CompetitionTypeCheckBox_Checked(object sender, System.Windows.RoutedEventArgs e)

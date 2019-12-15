@@ -43,15 +43,15 @@ namespace StudentCompetitions
 
     public class CompetitionResult
     {
-        public Competition Competition_ { get; private set; }
+        public Competition CompetitionObject { get; private set; }
 
         public int Place { get; set; }
 
         public double Mark { get; private set; }
 
-        public CompetitionResult(Competition Competition_, double Mark,int Place)
+        public CompetitionResult(Competition Competition, double Mark,int Place)
         {
-            this.Competition_ = Competition_;
+            this.CompetitionObject = Competition;
             this.Place = Place;
             this.Mark = Mark;
         }
