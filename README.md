@@ -4,6 +4,10 @@ Exam OOP Winter 2019
 
 A program to demonstrate student competitions
 
+Example of usage:
+
+![Example of usage](https://github.com/RostyslavMV/StudentCompetitions/blob/master/Example.png)
+
 Timetracking:
 --------------------------------
 Stage 1: Planning and predicting
