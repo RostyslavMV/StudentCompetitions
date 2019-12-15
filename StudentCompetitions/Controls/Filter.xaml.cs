@@ -11,9 +11,11 @@ namespace StudentCompetitions
     public partial class Filter : UserControl
     {
         public static StudentCollection FilteredStudents = new StudentCollection(Data.Students);
+        bool FormInitialized;
         public Filter()
         {
             InitializeComponent();
+            FormInitialized = true;
         }
 
         private bool FilterSatisfied(Student student)
@@ -57,6 +59,7 @@ namespace StudentCompetitions
 
         public void UpdateFilter()
         {
+            if (!FormInitialized) return;
             FilteredStudents.Clear();
             foreach (Student student in Data.Students)
             {

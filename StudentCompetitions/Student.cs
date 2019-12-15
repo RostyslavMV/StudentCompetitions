@@ -35,6 +35,7 @@ namespace StudentCompetitions
                 {
                     if (result.Competition_.Type == CompetitionType)
                         sum += result.Mark;
+                    count++;
                 }
             }
             else
@@ -42,6 +43,7 @@ namespace StudentCompetitions
                 foreach (CompetitionResult result in PreviousResults)
                 {
                     sum += result.Mark;
+                    count++;
                 }
             }
             if (count == 0) return 0;
