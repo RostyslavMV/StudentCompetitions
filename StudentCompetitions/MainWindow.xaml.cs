@@ -36,6 +36,8 @@ namespace StudentCompetitions
                 SkillsDataGrid.ItemsSource = selectedStudent.Skills;
                 Competitions.ItemsSource = selectedStudent.PreviousResults;
                 AverageText.Text = String.Format("{0:0.000}", selectedStudent.CurrentAverage);
+                var typeString = Filter.CompetitionTypeComboBox.SelectedItem.ToString().ToLower();
+                AverageHeader.Text = "Average in " + typeString + " competitions:";
             }
             else
             {
@@ -43,6 +45,7 @@ namespace StudentCompetitions
                 SkillsDataGrid.ItemsSource = null;
                 Competitions.ItemsSource = null;
                 AverageText.Text = "";
+                AverageHeader.Text = "Average:";
             }
 
         }

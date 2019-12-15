@@ -19,7 +19,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Border Grid.ColumnSpan="3" Margin="10" BorderBrush="#FF0243CF" BorderThickness="0,0,0,1">
-            <local:Filter  HorizontalAlignment="Left" />
+            <local:Filter x:Name="Filter"  HorizontalAlignment="Left" />
         </Border>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -31,15 +31,16 @@
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <TextBlock Text="Student: "  Padding="5"/>
                 <TextBlock x:Name="StudentName" Padding="5"/>
             </StackPanel>
-            <DataGrid x:Name="SkillsDataGrid"  Background="White" BorderThickness="0" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow"
+            <DataGrid x:Name="SkillsDataGrid"  Background="White" BorderThickness="0" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow" 
+                      Height="Auto" MinHeight="50" Margin="0 0 0 10"
              CanUserResizeRows="False" CanUserResizeColumns="False" AutoGenerateColumns="False"
              HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" Grid.Row="1">
                 <DataGrid.Columns>
@@ -49,7 +50,8 @@
             </DataGrid>
             <DataGrid x:Name="Competitions" Margin="0 3 0 0" Background="White" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow"
              CanUserResizeRows="False" CanUserResizeColumns="False" AutoGenerateColumns="False" 
-             HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" BorderThickness="0" Grid.Row="2">
+             HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" BorderThickness="0" Grid.Row="2"
+                      Height="Auto" MinHeight="50" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Competition" Width="4*" Binding="{Binding CompetitionObject.Name}"/>
                     <DataGridTextColumn Width="2*" Header="Date" Binding="{Binding CompetitionObject.Date, StringFormat='{}{0:dd.MM.yyyy}'}"/>
@@ -59,7 +61,7 @@
                 </DataGrid.Columns>
             </DataGrid>
             <StackPanel HorizontalAlignment="Center" Grid.Row="3" Orientation="Horizontal">
-                <TextBlock Text="Average result in type:" HorizontalAlignment="Center" Padding="5"/>
+                <TextBlock x:Name="AverageHeader" Text="Average:" HorizontalAlignment="Center" Padding="5"/>
                 <TextBlock x:Name="AverageText" Text="{Binding CurrentAverage}" HorizontalAlignment="Center" Padding="5"/>
             </StackPanel>
         </Grid>
